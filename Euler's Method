@@ -1,0 +1,29 @@
+ClrHome
+Disp "Func In Y₁"
+Input "X Int: ",X
+Input "Y Int: ",Y
+Input "Steps: ",A
+Input "Step Size: ",B
+5→D
+Lbl 1
+Y+(B*Y₁)→Y
+X+B→X
+Disp Y
+D-1→D
+If D≥0
+Then
+Lbl 2
+A-1→A
+If A>0
+Then
+Goto 1
+Else
+Stop
+End
+Else
+Disp "Clearing
+Pause 
+ClrHome
+4→D
+Goto 2
+End
