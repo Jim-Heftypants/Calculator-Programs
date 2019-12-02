@@ -1,0 +1,46 @@
+Degree
+ClrHome
+Disp "RETURNS DEGREES
+Disp "X COOR THEN Y
+Input "X: ",X
+Input "Y: ",Y
+((X^2)+(Y^2))^(1/2)→Z
+sin(Y/Z)→A
+cos(X/Z)→B
+Disp "sin()",A
+Disp "cos()",B
+
+C Probability
+
+0→B
+0→C
+Lbl 1
+ClrHome
+Input "SUCCESS NUM: ",K
+If (C>0)
+Then
+Goto 2
+End
+Input "SUCCESS RATE: ",P
+1-P→Q
+Input "TOTAL NUM: ",N
+Lbl 2
+((N nCr K)(P^K)(Q^(N-K)))→A
+A*100→A
+ClrHome
+Output(1,1,"Probability /:
+Output(2,1,A
+Output(3,1,"Stored in A
+Disp "
+Disp "
+Disp "
+Disp "
+A+B→B
+C+1→C
+Output(4,1,"Total: "
+Output(4,10,B
+Input "Repeat? ",θ
+If (θ=1
+Then
+Goto 1
+End
