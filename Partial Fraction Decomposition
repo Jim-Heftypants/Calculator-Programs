@@ -1,0 +1,65 @@
+ClrHome
+0→H:2→X:0→V
+Input "Numerator: ",Str1
+Disp "Put Scarry
+Disp "Denom Second
+Disp "If X ALONE
+Disp "Put Second
+Input "Denominator 1: ",Str2
+Input "Denominator 2: ",Str3
+Str2→Str5
+Str3→Str6
+
+
+If expr(Str3)=(expr(Str2))²:Then:"1"→Str3:V+1→V:0→X:End
+If inString(Str2,"^2":Then:"("+"A"+"X"+"+"+"B"+")"+"("+Str3+")"→Str3:H+1→H:End
+If inString(Str3,"^2":H+1→H
+If H=2:Then:ClrHome:Disp "Currently":Disp "Unavailable":Goto ST:End
+
+solve(expr(Str2),X,0→L
+"A"+"("+Str3+")"→Str3
+If H=1:Then:"("+"C"+"X"+"+"+"D"+")"+"("+Str2+")"→Str2:Goto 8:End
+"C"+"("+Str2+")"→Str2
+
+Lbl 8
+Str3+"+"+Str2+"-"+"("+Str1+")"→Str4
+Str4→Y₃
+
+L→X
+solve(Y₃,A,0→A
+0→X
+If H=1:Then:solve(Y₃,D,0→D:If L<0:L-1→X:If L≥0:L+1→X:solve(Y₃,C,0→C:Goto EN:End
+solve(Y₃,C,0→C
+
+
+Lbl EN
+ClrHome
+Output(3,1,"For Denom 1
+Output(4,1,A
+Output(6,1,"For Denom 2
+If H=1:Then:Output(7,1,C:Output(7,4,"X+":If D≥0:Output(7,6,D:If D<0:Output(7,5,D:Goto ST:End
+If V=1:Then:Output(4,1,C:Output(7,1,A:Goto ST:End
+Output(7,1,C
+Lbl ST
+Disp "1 is YES
+Input "Integrate? ",θ
+If θ≠1:Goto SS
+
+If H=0 and V=0
+Then
+ClrHome
+Output(4,1,A
+Output(4,6,"          "
+Output(4,6,"ln(
+Output(4,9,Str5
+Output(4,13,")
+Output(6,1,"+
+If C≥0:Output(6,2,C
+If C<0:Output(6,1,C
+Output(6,6,"          "
+Output(6,6,"ln(
+Output(6,9,Str6
+Output(6,13,")+C
+End
+
+Lbl SS
