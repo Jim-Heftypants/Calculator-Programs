@@ -1,0 +1,158 @@
+ClrHome
+
+Lbl 7
+Output(1,1,"Eliminate all radicals and move exponents to numerator."
+Output(5,1,"If the term does not appear, input 0."
+0→A
+0→B
+0→C
+0→D
+0→E
+0→F
+Pause 
+ClrHome
+Menu("Menu","X^1",1,"X^2",2,"X^3",3,"X^4",4,"X^5",5,"X^6",6)
+
+Lbl 1
+Input "X Term: ",A
+Input "a^X Term: ",G
+Goto 9
+
+Lbl 2
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "X^2 Term: ",B
+Input "b^X Term: ",H
+Goto 9
+
+Lbl 3
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "X^2 Term: ",B
+Input "b^X Term: ",H
+Input "X^3 Term: ",C
+Input "c^X Term: ",I
+Goto 9
+
+Lbl 4
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "X^2 Term: ",B
+Input "b^X Term: ",H
+Input "X^3 Term: ",C
+Input "c^X Term: ",I
+Input "X^4 Term: ",D
+Input "d^X Term: ",J
+Goto 9
+
+Lbl 5
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "X^2 Term: ",B
+Input "b^X Term: ",H
+Input "X^3 Term: ",C
+Input "c^X Term: ",I
+Input "X^4 Term: ",D
+Input "d^X Term: ",J
+Input "X^5 Term: ",E
+Input "e^X Term: ",K
+Goto 9
+
+Lbl 6
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "X^2 Term: ",B
+Input "b^X Term: ",H
+Input "X^3 Term: ",C
+Input "c^X Term: ",I
+Input "X^4 Term: ",D
+Input "d^X Term: ",J
+Input "X^5 Term: ",E
+Input "e^X Term: ",K
+Input "X^6 Term: ",F
+Input "f^X Term: ",L
+Goto 9
+
+Lbl Z
+0→A
+A→B
+B→C
+C→D
+D→E
+E→F
+
+Lbl 9
+
+LF→F
+KE→E
+JD→D
+IC→C
+HB→B
+GA→A
+G-1→G
+H-1→H
+I-1→I
+J-1→J
+K-1→K
+L-1→L
+
+ClrHome
+Disp "
+Disp "
+Disp "
+Disp "
+Disp "
+Disp "
+Disp "
+If F=0
+Then
+Goto A
+End
+Output(6,1,F
+Output(6,5,"X^
+Output(6,7,L
+Lbl A
+If E=0
+Then
+Goto B
+End
+Output(5,1,E
+Output(5,5,"X^
+Output(5,7,K
+Lbl B
+If D=0
+Then
+Goto C
+End
+Output(4,1,D
+Output(4,5,"X^
+Output(4,7,J
+Lbl C
+If C=0
+Then
+Goto D
+End
+Output(3,1,C
+Output(3,5,"X^
+Output(3,7,I
+Lbl D
+If B=0
+Then
+Goto E
+End
+Output(2,1,B
+Output(2,5,"X^
+Output(2,7,H
+Lbl E
+If A=0
+Then
+Goto F
+End
+Output(1,1,A
+Output(1,5,"X^
+Output(1,7,G
+Lbl F
+Pause 
+Menu("Restart?","Yes",7,"No",8,"Yes With F'(x)",Z)
+Lbl 8
+Stop
