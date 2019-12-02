@@ -1,0 +1,37 @@
+ClrHome
+Disp "AX²+BX+C
+
+Input "A: ",A
+Input "B: ",B
+Input "C: ",C
+A→θ
+A/θ→A
+B/θ→B
+C/θ→C
+­((­B+√(B²-4AC))/(2A))→E
+­((­B-√(B²-4AC))/(2A))→G
+ClrHome
+Disp "
+Disp "
+Output(1,1,θ
+Output(1,3,"(X+
+If E≥0
+Then
+Output(1,6,E
+Else
+Output(1,5,E
+End
+Output(1,9,")
+If E=G
+Then
+Output(1,10,"²
+Disp "PERFECT
+Else
+Output(1,10,"(X+
+If G≥0
+Then
+Output(1,13,G
+Else
+Output(1,12,G
+End
+Output(1,16,")
