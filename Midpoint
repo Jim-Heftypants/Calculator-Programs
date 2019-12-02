@@ -1,0 +1,16 @@
+ClrHome
+Input "X1: ",A
+Input "Y1: ",B
+Input "X2: ",C
+Input "Y2: ",D
+
+ClrHome
+Disp " 
+Disp " 
+Disp " 
+(A+C)/2→E
+(B+D)/2→F
+Output(1,1,"X: 
+Output(1,4,E
+Output(2,1,"Y:
+Output(2,4,F
