@@ -1,0 +1,366 @@
+ClrHome
+Output(4,5,"MAZE"
+Output(4,9,"MAZE"
+Output(5,5,"MAZE"
+Output(5,9,"MAZE"
+Output(2,4,"?
+Output(2,6,"?
+Output(2,8,"?
+Output(2,10,"?
+Output(2,12,"?
+Output(2,14,"?
+Output(4,2,"?
+Output(4,4,"?
+Output(4,8,"?
+Output(4,10,"?
+Output(4,12,"?
+Output(4,14,"?
+Output(4,16,"?
+Output(6,4,"?
+Output(6,6,"?
+Output(6,8,"?
+Output(6,10,"?
+Output(6,12,"?
+Output(6,14,"?
+Output(8,2,"Press Any Key
+
+Repeat getKey
+randInt(1,8)→O
+randInt(1,16→P
+If O=8 and P>2 or O=8 and P<15:1→P
+Output(O,P,"?
+End
+
+ClrHome
+Menu("Options","Read Rules",RU,"Start Game",YO
+
+Lbl RU
+Menu("Rules","Win Criteria",R1,"Controls",R2,"Start Game",YO
+
+Lbl R1
+Disp "Victory Criteria
+Disp "Do NOT Cross X
+Disp " 
+Disp "The Map Is 5x5
+Disp "Exit Through
+Disp "Missing X
+Disp "To Clear Maze
+Output(8,2,"Press Any Key
+Repeat getKey:End
+Goto RU
+
+Lbl R2
+Disp "Controls
+Disp "Use Arrow Keys
+Output(8,2,"Press Any Key
+Repeat getKey:End
+Goto RU
+
+Lbl YO
+
+2→A:2→B:3→E:2→F
+Goto C2
+
+Lbl ST
+
+"Move Maps Horizontally"
+If X=16:Then:F+1→F:2→A:0→B:Goto WA:End
+If X=1:Then:F-1→F:15→A:0→B:Goto WA:End
+
+"Move Maps Vertically"
+If Y=8:Then:E+1→E:2→B:0→A:Goto WA:End
+If Y=1:Then:E-1→E:7→B:0→A:Goto WA:End
+
+Lbl WA
+If E=4:Goto D
+If E=3:Goto C
+If E=2:Goto B
+If E=1:Goto A
+
+
+Lbl A
+If F=2:Goto A2
+If F=1:Goto A1
+If F=3:Goto A3
+If F=4:Goto A4
+
+Lbl B
+If F=1:Goto B1
+If F=2:Goto B2
+If F=3:Goto B3
+If F=4:Goto B4
+
+Lbl C
+If F=1:Goto C1
+If F=2:Goto C2
+If F=3:Goto C3
+If F=4:Goto C4
+
+Lbl D
+If F=1:Goto D1
+If F=2:Goto D2
+If F=3:Goto D3
+If F=4:Goto D4
+
+Lbl A1
+ClrHome
+For(I,1,16)
+For(O,1,8)
+Output(O,I,"?
+End
+End
+Output(8,8,"X
+Output(8,9,"X
+Goto HV
+
+Lbl A2
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,16,"X
+Output(5,16,"X
+Output(8,8,"X
+Output(8,9,"X
+Goto HV
+
+Lbl A3
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,1,"X
+Output(5,1,"X
+Output(1,8,"X
+Output(1,9,"X
+Goto HV
+
+Lbl A4
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,16,"X
+Output(5,16,"X
+Output(1,8,"X
+Output(1,9,"X
+Goto HV
+
+Lbl B1
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,1,"X
+Output(5,1,"X
+Goto HV
+
+Lbl B2
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+Output(O,I,"0
+End
+End
+Goto MH
+
+Lbl B3
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,16,"X
+Output(5,16,"X
+Goto HV
+
+Lbl B4
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Goto MV
+
+Lbl C1
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Goto MV
+
+Lbl C2
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+Output(O,I,"0
+End
+End
+Output(4,1,"X
+Output(5,1,"X
+Goto MH
+
+Lbl C3
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Goto HV
+
+Lbl C4
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,16,"X
+Output(5,16,"X
+Goto HV
+
+Lbl D1
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(8,8,"X
+Output(8,9,"X
+Output(4,1,"X
+Output(5,1,"X
+Goto HV
+
+Lbl D2
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+Output(O,I,"0
+End
+End
+Goto MH
+
+Lbl D3
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(8,8,"X
+Output(8,9,"X
+Goto HV
+
+Lbl D4
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+Output(4,16,"X
+Output(5,16,"X
+Output(8,8,"X
+Output(8,9,"X
+Goto HV
+
+
+"Add Repeat for ALL Lbl Criteria"
+
+
+"Loop For Horizontal Movement Only"
+Lbl MH
+4→Y:A→X
+Repeat X=16 or X=1
+Output(Y,X,"L
+getKey→K
+If K≠0:Output(Y,X," "
+Y-(K=25)+(K=34)→Y
+Y-(Y>5)+(Y<4)→Y
+X+(K=26)-(K=24)→X
+End
+Goto ST
+
+"Loop For Vertical Movement Only"
+Lbl MV
+B→Y:8→X
+Repeat Y=8 or Y=1
+Output(Y,X,"L
+getKey→K
+If K≠0:Output(Y,X," "
+Y-(K=25)+(K=34)→Y
+X+(K=26)-(K=24)→X
+X+(X<8)-(X>9)→X
+End
+Goto ST
+
+"Loop For Horizontal and Vertical Movement"
+Lbl HV
+If A≠0 and B=0:Then:A→X:4→Y:End
+If B≠0 and A=0:Then:B→Y:8→X:End
+Repeat Y=8 or X=16 or Y=1 or X=1
+Output(Y,X,"L
+getKey→K
+If K≠0:Output(Y,X," "
+Y-(K=25)+(K=34)→Y
+X+(K=26)-(K=24)→X
+Y-((X<8 or X>9) and Y=6)+((X<8 or X>9) and Y=3)→Y
+X+(X=7 and (Y<4 or Y>5))-(X=10 and (Y<4 or Y>5))→X
+End
+If E=1 and F=2 and Y=1:Goto 6
+If E=1 and F=1 and Y=1 or E=1 and F=1 and X=1:Goto LO
+Goto ST
+
+Lbl LO
+ClrHome
+Output(4,3,"Are You...
+Output(5,6,"Lost?
+Output(7,4,"Hit Enter
+Pause :Goto YO
+
+
+Lbl 6
+ClrHome
+Disp "You Cleared"
+Disp "The Maze!"
+Pause 
+ClrHome:"
