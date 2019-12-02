@@ -1,0 +1,527 @@
+ClrHome
+Output(4,3,"MAZE 2"
+Output(4,9,"MAZE 2"
+Output(5,3,"MAZE 2"
+Output(5,9,"MAZE 2"
+Output(2,4,"?
+Output(2,6,"?
+Output(2,8,"?
+Output(2,10,"?
+Output(2,12,"?
+Output(2,14,"?
+Output(4,2,"?
+Output(4,16,"?
+Output(6,4,"?
+Output(6,6,"?
+Output(6,8,"?
+Output(6,10,"?
+Output(6,12,"?
+Output(6,14,"?
+Output(8,2,"Press Any Key
+
+Repeat getKey
+randInt(1,8)→O
+randInt(1,16→P
+If O=8 and P>2 or O=8 and P<15:1→P
+Output(O,P,"?
+End
+
+ClrHome
+Menu("Options","Read Rules",RU,"Start Game",YO
+
+Lbl RU
+Menu("Rules","Victory Criteria",R1,"Controls",R2,"Combat",R3,"Ending Game",R4,"Start Game",YO
+
+Lbl R1
+Disp "Victory Criteria
+Output(2,3,"Collect Three
+Output(3,5,"Keys ABC
+Output(5,3,"Take Them to
+Output(6,3,"The Exit and
+Output(7,6,"Escape!
+Output(8,3,"Press Enter
+Pause 
+ClrHome
+Goto RU
+
+Lbl R2
+Disp "Controls
+Output(2,2,"Use Arrow Keys
+Output(3,3,"For Movement
+Output(4,3,"Hit 7 To Use
+Output(5,6,"Bombs
+Output(6,2,"Step Onto Keys
+Output(7,1,"To Pick Them Up
+Output(8,3,"Press Enter
+Pause 
+ClrHome
+Goto RU
+
+Lbl R3
+Disp "Combat
+Output(2,3,"Only One Bomb
+Output(3,5,"At a Time
+Output(4,5,"Bombs are
+Output(5,4,"Showed as X
+Output(6,4,"No Diagonal
+Output(7,1,"Movement Enabled
+Output(8,3,"Press Enter
+Pause 
+ClrHome
+Goto RU
+
+Lbl R4
+Disp "Ending Game
+Output(2,4,"Press DEL
+Output(3,3,"To End Game
+Output(4,2,"The Option to
+Output(5,5,"Save is
+Output(6,4,"Available
+Pause 
+ClrHome
+Goto RU
+
+Lbl YO
+If S:Then:0→S:Goto ST:End
+2→A:2→B:3→E:3→F:0→B:8→A:4→H:0→W:0→M:0→L:0→T:0→S
+SetUpEditor ⌊CHAR
+4→dim(⌊CHAR)
+SetUpEditor ⌊ENEMY
+8→dim(⌊ENEMY)
+SetUpEditor ⌊ENC
+6→dim(⌊ENC)
+"Left, Right, Down
+SetUpEditor ⌊PERAM
+4→dim(⌊PERAM)
+"Top, Bottom, Left, Right"
+SetUpEditor ⌊KEYS
+3→dim(⌊KEYS)
+
+
+Goto A1
+
+Lbl ST
+
+"Move Maps Horizontally"
+If X=16:Then:F+1→F:2→A:0→B:Goto WA:End
+If X=1:Then:F-1→F:15→A:0→B:Goto WA:End
+
+"Move Maps Vertically"
+If Y=8:Then:E+1→E:2→B:0→A:Goto WA:End
+If Y=1:Then:E-1→E:7→B:0→A:Goto WA:End
+
+Lbl WA
+If E=5:Goto E
+If E=4:Goto D
+If E=3:Goto C
+If E=2:Goto B
+If E=1:Goto A
+
+
+Lbl A
+If F=1:Goto DR
+If F=2:Goto A2
+If F=3:Goto A2
+If F=4:Goto A2
+If F=5:Goto UL
+
+Lbl B
+If F=1:Goto A5
+If F=2:Goto A1
+If F=3:Goto A1
+If F=4:Goto DL
+If F=5:Goto UD
+
+Lbl C
+If F=1:Goto UD
+If F=2:Goto UR
+If F=3:Goto A1
+If F=4:Goto A2
+If F=5:Goto A4
+
+Lbl D
+If F=1:Goto UR
+If F=2:Goto A2
+If F=3:Goto A1
+If F=4:Goto A3
+If F=5:Goto A4
+
+Lbl E
+If F=1:Goto DR
+If F=2:Goto A3
+If F=3:Goto A3
+If F=4:Goto LR
+If F=5:Goto DL
+
+"C3 = D3 = B3 = B2 (VH)
+Lbl A1
+ClrHome
+If E=4 and F=3 and not(⌊ENC(5)):Then:1→⌊ENC(5):1→W:Goto HV:End
+If E=2 and F=2 and not(⌊ENC(1)):Then:1→⌊ENC(1):1→W:Goto HV:End
+If E=2 and F=3 and not(⌊ENC(2)):Then:1→⌊ENC(2):1→W:Goto HV:End
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+0→⌊PERAM(2)
+0→⌊PERAM(3)
+0→⌊PERAM(4)
+Goto HV
+
+"E4 (Left-Right)
+Lbl LR
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+Output(O,I,"0
+End
+End
+1→⌊PERAM(1)
+1→⌊PERAM(2)
+0→⌊PERAM(3)
+0→⌊PERAM(4)
+Goto HV
+
+"B5 = C1 (Up-Down)
+Lbl UD
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If I=8 and O=1:I+2→I
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+0→⌊PERAM(2)
+1→⌊PERAM(3)
+1→⌊PERAM(4)
+Goto HV
+
+"D2 = C4 = A2 = A3 = A4 (Left-Right-Down)
+Lbl A2
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=6 or I=9 and O=6:Then:I+1→I:1→O:End
+Output(O,I,"0
+End
+End
+1→⌊PERAM(1)
+0→⌊PERAM(2)
+0→⌊PERAM(3)
+0→⌊PERAM(4)
+Goto HV
+
+"B1 (Up-Down-Right)
+Lbl A5
+ClrHome
+For(I,1,16)
+For(O,1,8)
+If I=8 and O=1:I+2→I
+If I>8 and O=4:O+2→O
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+0→⌊PERAM(2)
+1→⌊PERAM(3)
+0→⌊PERAM(4)
+Goto HV
+
+"D5 = C5 (Up-Down-Left)
+Lbl A4
+ClrHome
+If E=3 and F=5 and not(⌊ENC(3)):Then:1→⌊ENC(3):1→W:Goto HV:End
+For(I,1,16)
+For(O,1,8)
+If I=8 and O=1:I+2→I
+If I<8 and O=4:O+2→O
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+0→⌊PERAM(2)
+0→⌊PERAM(3)
+1→⌊PERAM(4)
+Goto HV
+
+"D4 = E3 = E2 (Left-Right-Top)
+Lbl A3
+ClrHome
+If E=5 and F=2 and not(⌊ENC(6)):Then:1→⌊ENC(6):1→W:Goto HV:End
+For(I,1,16)
+For(O,1,8)
+If O=4:O+2→O
+If I=8 and O=1 or I=9 and O=1:6→O
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+1→⌊PERAM(2)
+0→⌊PERAM(3)
+0→⌊PERAM(4)
+If E=5 and F=2:Then:For(I,1,16):Output(6,I," "):End
+Output(4,1,"A"):Output(5,1,"B"):Output(6,1,"C"):End
+Goto HV
+
+"A1 = E1 (Bottom-Right)
+Lbl DR
+ClrHome
+If E=5 and F=1 and not(⌊KEYS(1) and ⌊KEYS(2) and ⌊KEYS(3)):Then
+Output(2,1,"Key Not Acquired"):Output(4,4,"Returning"):Output(5,2,"to Last Tile"):Output(8,3,"Press Enter")
+Pause 
+16→X:Goto ST:End
+For(I,1,7)
+For(O,1,8)
+Output(O,I,"0
+End
+End
+For(I,8,16)
+For(O,1,3)
+Output(O,I,"0
+End
+End
+For(I,10,16)
+For(O,6,8)
+Output(O,I,"0
+End
+End
+1→⌊PERAM(1)
+0→⌊PERAM(2)
+1→⌊PERAM(3)
+0→⌊PERAM(4)
+If E=1 and F=1 and not(⌊KEYS(1)):Then:Output(4,8,"A"):1→⌊KEYS(1):End
+Goto HV
+
+"D1 = C2 (Top-Right)
+Lbl UR
+ClrHome
+If E=4 and F=1 and not(⌊ENC(4)):Then:1→⌊ENC(4):1→W:Goto HV:End
+For(I,1,7)
+For(O,1,8)
+Output(O,I,"0
+End
+End
+For(I,8,16)
+For(O,6,8)
+Output(O,I,"0
+End
+End
+For(I,10,16)
+For(O,1,3)
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+1→⌊PERAM(2)
+1→⌊PERAM(3)
+0→⌊PERAM(4)
+Goto HV
+
+"E5 = B4 (Top-Left)
+Lbl DL
+ClrHome
+For(I,10,16)
+For(O,1,8)
+Output(O,I,"0
+End
+End
+For(I,1,10)
+For(O,6,8)
+Output(O,I,"0
+End
+End
+For(I,1,7)
+For(O,1,3)
+Output(O,I,"0
+End
+End
+0→⌊PERAM(1)
+1→⌊PERAM(2)
+0→⌊PERAM(3)
+1→⌊PERAM(4)
+If E=5 and F=5 and not(⌊KEYS(3)):Then:Output(5,9,"C"):1→⌊KEYS(3):End
+Goto HV
+
+"A5 (Bottom-Left)
+Lbl UL
+ClrHome
+For(I,10,16)
+For(O,1,8)
+Output(O,I,"0
+End
+End
+For(I,1,10)
+For(O,1,3)
+Output(O,I,"0
+End
+End
+For(I,1,7)
+For(O,6,8)
+Output(O,I,"0
+End
+End
+1→⌊PERAM(1)
+0→⌊PERAM(2)
+0→⌊PERAM(3)
+1→⌊PERAM(4)
+If E=1 and F=5 and not(⌊KEYS(2)):Then:Output(4,9,"B"):1→⌊KEYS(2):End
+Goto HV
+
+"ALL Movement Loop"
+Lbl HV
+If W:Then:Goto CO:End
+Output(8,14,⌊KEYS(1)
+Output(8,15,⌊KEYS(2)
+Output(8,16,⌊KEYS(3)
+Output(8,13," "
+Output(7,13,"Keys
+Output(8,1,"0
+Output(8,2,H
+Output(8,3," "
+Output(7,1,"HP
+Output(7,3," "
+If A≠0 and B=0:Then:A→X:4→Y:End
+If B≠0 and A=0:Then:B→Y:8→X:End
+Repeat Y=8 or X=16 or Y=1 or X=1
+Output(Y,X,"L
+getKey→K
+If K=23:Goto KK
+If K≠0 and K≠82:Output(Y,X," "
+Y-(K=25)+(K=34)→Y
+X+(K=26)-(K=24)→X
+Y-((X<8 or X>9) and Y=6)+((X<8 or X>9) and Y=3)→Y
+X+(X=7 and (Y<4 or Y>5))-(X=10 and (Y<4 or Y>5))→X
+If ⌊PERAM(1):Y+((X=8 or X=9) and Y=3)→Y
+If ⌊PERAM(2):Y-((X=8 or X=9) and Y=6)→Y
+If ⌊PERAM(3):X+((Y=4 or Y=5) and X=7)→X
+If ⌊PERAM(4):X-((Y=4 or Y=5) and X=10)→X
+If K=82:Then:Output(Y-1,X,"1"):Output(Y+1,X,"1"):Output(Y,X-1,"1"):Output(Y,X+1,"1"):End
+End
+If E=5 and F=1 and Y=8:Goto 6
+Goto ST
+
+Lbl CO
+ClrHome
+5→⌊CHAR(3):8→⌊CHAR(4)
+0→⌊CHAR(1):0→⌊CHAR(2)
+randInt(1,8)→⌊ENEMY(1):randInt(1,16)→⌊ENEMY(2)
+If ⌊ENEMY(2)=8:1→⌊ENEMY(2)
+If ⌊ENEMY(1)=5:1→⌊ENEMY(1)
+1→⌊ENEMY(7):1→⌊ENEMY(8)
+2→L
+0→T
+0→K
+Output(2,4,"Encounter!
+Output(8,3,"Press Enter
+Pause 
+ClrHome
+Repeat L≤0 or H≤0
+If T=82:Output(⌊CHAR(1),⌊CHAR(2)," "
+Output(⌊ENEMY(7),⌊ENEMY(8)," "
+Output(⌊CHAR(3),⌊CHAR(4),"L
+Output(⌊ENEMY(1),⌊ENEMY(2),"W
+If ⌊CHAR(1):Output(⌊CHAR(1),⌊CHAR(2),"X
+
+getKey→K
+If K=23:Goto KK
+
+Output(⌊CHAR(3),⌊CHAR(4)," "
+⌊CHAR(3)-(K=25)+(K=34)→⌊CHAR(3)
+⌊CHAR(4)+(K=26)-(K=24)→⌊CHAR(4)
+⌊CHAR(3)+(⌊CHAR(3)<1)-(⌊CHAR(3)>8)→⌊CHAR(3)
+⌊CHAR(4)+(⌊CHAR(4)<1)-(⌊CHAR(4)>16)→⌊CHAR(4)
+
+If K=72:Then
+If ⌊CHAR(1):Output(⌊CHAR(1),⌊CHAR(2)," ")
+⌊CHAR(3)→⌊CHAR(1):⌊CHAR(4)→⌊CHAR(2)
+Output(⌊CHAR(1),⌊CHAR(2),"X")
+End
+
+If ⌊CHAR(1)=⌊ENEMY(1) and ⌊CHAR(2)=⌊ENEMY(2):Then:L-1→L:0→⌊CHAR(1):0→⌊CHAR(2):End
+If ⌊CHAR(3)=⌊ENEMY(1) and ⌊CHAR(4)=⌊ENEMY(2):H-1→H
+
+If ⌊ENEMY(6)<1:Then
+⌊ENEMY(1)→⌊ENEMY(7):⌊ENEMY(2)→⌊ENEMY(8)
+⌊CHAR(3)-⌊ENEMY(1)→⌊ENEMY(3)
+⌊CHAR(4)-⌊ENEMY(2)→⌊ENEMY(4)
+abs(⌊ENEMY(4))<abs(⌊ENEMY(3))→⌊ENEMY(5)
+If ⌊ENEMY(5):⌊ENEMY(1)-(⌊ENEMY(1)>⌊CHAR(3))+(⌊ENEMY(1)<⌊CHAR(3))→⌊ENEMY(1)
+If not(⌊ENEMY(5)):⌊ENEMY(2)-(⌊ENEMY(2)>⌊CHAR(4))+(⌊ENEMY(2)<⌊CHAR(4))→⌊ENEMY(2)
+2→⌊ENEMY(6)
+End
+
+⌊ENEMY(6)-1→⌊ENEMY(6)
+Output(8,1,"0
+Output(8,2,H
+Output(7,1,"HP
+Output(2,1,"0
+Output(2,2,L
+Output(1,1,"Mob
+
+End
+0→W
+If H>0:Goto WA
+Goto 7
+
+
+Lbl LO
+ClrHome
+Output(4,3,"Are You...
+Output(5,6,"Lost?
+Output(7,4,"Hit Enter
+Pause :Goto YO
+
+
+Lbl 6
+ClrHome
+Output(2,3,"You Cleared
+Output(3,5,"The Maze!"
+Pause 
+ClrHome:"
+DelVar ⌊PERAM
+DelVar ⌊KEYS
+DelVar ⌊CHAR
+DelVar ⌊ENEMY
+DelVar ⌊ENC
+Stop
+
+Lbl 7
+ClrHome
+Output(2,3,"You have been
+Output(3,4,"Vanquished
+Output(4,5,"by evil!
+Pause 
+ClrHome:"
+DelVar ⌊PERAM
+DelVar ⌊KEYS
+DelVar ⌊CHAR
+DelVar ⌊ENEMY
+DelVar ⌊ENC
+Stop
+
+Lbl KK
+Menu("Save","Yes",K1,"No",K2
+Lbl K2
+DelVar ⌊PERAM
+DelVar ⌊KEYS
+DelVar ⌊CHAR
+DelVar ⌊ENEMY
+DelVar ⌊ENC
+ClrHome:"
+Stop
+Lbl K1
+SetUpEditor ⌊CHAR
+SetUpEditor ⌊PERAM
+SetUpEditor ⌊KEYS
+SetUpEditor ⌊ENEMY
+SetUpEditor ⌊ENC
+1→S
+ClrHome:"
+Stop
