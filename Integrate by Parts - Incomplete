@@ -1,0 +1,41 @@
+ClrHome
+DelVar Str2:DelVar Str4:DelVar Str3:DelVar Str1:DelVar Str5
+Disp "(X^2)..sin(x)
+Disp "Put .. between
+Disp "Function parts
+Input "Function: ",Str1
+
+
+"       String Division
+inString(Str1,".."→A
+sub(Str1,1,A→Str2
+sub(Str1,A+2,length(Str1)-1→Str3
+
+"       ^2 Deriv
+inString(Str2,"^"→B
+sub(Str2,B,B+1→Str4
+expr(Str4)→Z
+
+For(I,1,Z
+expr(Str4)+"("+Str2+")"→Str2
+inString(Str2,"^"→B
+sub(Str2,B,B+1→Str4
+expr(Str4→C
+X-1→X
+sub(Str2,1,B)+C→Str2
+End
+DelVar Str4
+
+
+"       Trig Deriv
+inString(Str3,"(",3→B
+inString(Str3,")",3→E
+sub(Str3,1,B→Str4
+sub(Str3,E,length(Str3)-1→Str5
+
+For(I,1,Z
+expr(Str4)+"("+Str3+")"→Str3
+inString(Str3,"^"→B
+sub(Str2,B,B+1→Str4
+expr(Str4→C
+X-1→X
