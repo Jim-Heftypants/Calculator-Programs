@@ -1,0 +1,41 @@
+ClrHome
+0→K:8→Y:1→X:1→D:0→L:0→A
+Repeat X=D and Y=C or X=(D+E-1) and Y=C
+L+1→L
+If L=3:L-2→L
+If L=1
+Then
+If D=1
+Then
+ClrHome
+A+1→A
+randInt(2,4)→E
+17→D
+randInt(1,8-E)→C
+End
+T*(C>1 and C<9-E)+(C=1)-(C=9-E)→T
+C+T→C
+D-1→D
+For(I,1,E
+Output(C+I-1,D,"π
+End
+End
+Output(Y,X,"0
+getKey→K
+Y-(K=25)+(K=34)→Y
+If Y>8:1→Y
+If Y<1:8→Y
+X+(K=26)-(K=24)→X
+If X>16:1→X
+If X<1:16→X
+ClrHome
+If A=3:Goto 6
+End
+Pause 
+ClrHome
+Disp "You Win!
+Stop
+Lbl 6
+ClrHome
+Disp "You Lose!
+Stop
