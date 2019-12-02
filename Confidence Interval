@@ -1,0 +1,44 @@
+ClrHome
+Menu("Confid","X",1,"P",2
+Lbl 1
+Input "X: ",X
+Input "s: ",S
+Input "n: ",N
+Input "Z: ",Z
+If (Z=.99)
+Then
+2.58→Z
+End
+If (Z=.95
+Then
+1.96→Z
+End
+If (Z=.90
+Then
+1.645→Z
+End
+Z(S/√(N))→A
+ClrHome
+Output(1,1,X
+Output(1,4,"+
+Output(1,5,A
+Stop
+Lbl 2
+ClrHome
+Input "p: ",P
+Input "n: ",N
+Input "Z: ",Z
+If (Z=.99
+Then
+2.58→Z
+End
+If (Z=.95
+Then
+1.96→Z
+End
+If (Z=.9
+Then
+1.645→Z
+End
+Z(√((P(1-P))/N))→A
+ClrHome
