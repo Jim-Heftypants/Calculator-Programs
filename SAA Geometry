@@ -1,0 +1,16 @@
+ClrHome
+Degree
+Input "Side A: ",A
+Input "Angle A: ",D
+Input "Angle B: ",E
+F→180-(D+E)
+
+B→(Asin(E))/(sin(D))
+C→(Asin(F))/(sin(D))
+
+Output(1,1,"Side B
+Output(1,8,B
+Output(2,1,"Side C
+Output(2,8,C
+Output(3,1,"Angle C
+Output(3,8,F
