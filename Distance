@@ -1,0 +1,13 @@
+ClrHome
+Input "X1: ",A
+Input "Y1: ",B
+Input "X2: ",C
+Input "Y2: ",D
+
+ClrHome
+Disp " 
+Disp " 
+Disp " 
+(((C-A)^2)+((D-B)^2))^.5→E
+Output(1,1,"Distance
+Output(1,4,E
