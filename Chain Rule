@@ -1,0 +1,48 @@
+ClrHome
+
+Disp "   Chain Rule
+Disp " Use only one ()
+Pause 
+
+ClrHome
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "A Term: ",X
+Input "x^A Term: ",E
+Input "( )^X Term: ",Z
+
+Lbl 1
+GA→C
+EX→N
+E-1→K
+If K<0
+Then
+K+1→K
+End
+G-1→I
+If I<0
+Then
+I+1→I
+End
+Z-1→W
+
+ClrHome
+Disp "
+Disp "
+Disp "
+Disp "
+Disp "
+
+Output(1,1,Z
+Output(1,2,"((
+Output(1,4,A
+Output(1,6,"x^
+Output(1,8,G
+Output(1,10,"+
+
+Output(2,3,X
+Output(2,5,"x^
+Output(2,7,E
+Output(2,9,")^
+Output(2,11,W
+Output(2,12,")
