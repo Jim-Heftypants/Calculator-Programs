@@ -1,0 +1,35 @@
+ClrHome
+Input "X^5: ",A
+Input "X^4: ",B
+Input "X^3: ",C
+Input "X^2: ",D
+Input "X: ",E
+Input "Y: ",F
+Input "Sign changes: ",G
+ClrHome
+Lbl 1
+Input "Divisor: ",H
+A→N
+N*H→I
+I+B→O
+O*H→J
+J+C→P
+P*H→K
+K+D→Q
+Q*H→L
+L+E→R
+R*H→M
+M+F→S
+If S=0
+Then
+Disp H
+G-1→G
+Pause 
+End
+If G=0
+Then
+Goto 2
+End
+Goto 1
+Lbl 2
+Stop
