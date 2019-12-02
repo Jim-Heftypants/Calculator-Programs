@@ -1,0 +1,81 @@
+ClrHome
+Disp "  Product Rule
+Pause 
+ClrHome
+Input "X Term: ",A
+Input "a^X Term: ",G
+Input "A Term: ",X
+Input "x^A Term: ",E
+Input "Y Term: ",B
+Input "b^X Term: ",H
+Input "B Term: ",Y
+Input "x^B Term: ",F
+
+Lbl 1
+HB→D
+GA→C
+EX→N
+FY→M
+E-1→K
+If K<0
+Then
+K+1→K
+End
+F-1→L
+If L<0
+Then
+L+1→L
+End
+G-1→I
+If I<0
+Then
+I+1→I
+End
+H-1→J
+If J<0
+Then
+J+1→J
+End
+
+ClrHome
+Disp "
+Disp "
+Disp "
+Disp "
+Disp "
+
+Output(1,1,C
+Output(1,4,"x^
+Output(1,6,I
+Output(1,8,"+
+Output(1,10,N
+Output(1,13,"x^
+Output(1,15,K
+
+Output(2,1,B
+Output(2,4,"x^
+Output(2,6,H
+Output(2,8,"+
+Output(2,10,Y
+Output(2,13,"x^
+Output(2,15,F
+
+Output(3,1,"++++++++++++++++
+
+Output(4,1,A
+Output(4,4,"x^
+Output(4,6,G
+Output(4,8,"+
+Output(4,10,X
+Output(4,13,"x^
+Output(4,15,E
+
+Output(5,1,D
+Output(5,4,"x^
+Output(5,6,J
+Output(5,8,"+
+Output(5,10,M
+Output(5,13,"x^
+Output(5,15,L
+
+Stop
